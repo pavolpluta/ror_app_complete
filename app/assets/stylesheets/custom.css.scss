@@ -1,0 +1,173 @@
+$jumbotron-bg: #277d83;
+$navbar-default-bg: #3c3c3c;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+
+body {
+  font-family: 'Slabo 27px', serif;
+  font-size: large;
+}
+
+#logo {
+  float: left;
+  font-size: 1.5em;
+  color: #fff;
+  text-transform: uppercase;
+
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar{
+  margin: 0;
+}
+
+.nav.navbar-nav li a{
+  color: white;
+}
+
+.nav.navbar-nav li a:hover {
+  color: #99a29f;
+}
+
+.nav.navbar-nav li a:focus {
+  color: white;
+}
+
+.nav.navbar-nav li.active a{
+  background-color: #E7E7E7;
+}
+
+.nav.navbar-nav li.active a:hover{
+  background-color: #E7E7E7;
+}
+/* buildings.html.erb */
+
+.buildings  a{
+  border: none;
+  border-bottom: solid 2px darkgray;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: background-color 0.2s ease;
+  padding:30px
+
+}
+
+.buildings{
+  max-height: 400px;
+  overflow-y: scroll;
+  border: 1px solid lightgray;
+
+}
+
+@media (min-width: 768px){
+  .buildings{
+    max-height: 500px;
+    overflow-y: scroll;
+    border: 1px solid lightgray;
+
+  }
+
+  .buildings  a{
+    padding: 40px;
+  }
+}
+
+
+.buildings a {
+  border-top: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
+}
+.buildings a:last-child{
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+.buildings a:hover{
+  background-color: #277d83;
+  color: #0f0f0f;
+
+}
+
+
+.buildings  a:focus{
+  background-color: transparent;
+}
+
+.buildings  a:focus:hover{
+  background-color: #277d83;
+}
+
+#searchBuilding{
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.around_link_div {
+  position: relative;
+}
+
+.button_today_div{
+  position: absolute;
+  right: 0;
+  top: 5px;
+  z-index: 1;
+}
+
+
+.btn-custom{
+  background-color: #2b542c;
+}
+
+@media (max-width: 768px){
+  .btn-custom {
+    font-size: 10px;
+  }
+}
+
+
+
+.breadcrumb{
+  background-color: transparent;
+  font-size: small;
+}
+
+/* rooms.html.erb */
+
+.back {
+  color: #0f0f0f
+}
+
+@media (max-width: 768px){
+
+  .rooms{
+    max-height: 500px;
+    overflow-y: scroll;
+    border: 1px solid lightgray;
+  }
+}
+
+.room {
+  padding: 80px;
+  color: #363636;
+  -webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  -ms-transition: color 0.2s ease;
+  transition: background-color 0.2s ease;
+  font-size: larger;
+}
+
+.rooms>a:hover {
+  background-color: #277d83;
+  color: #0f0f0f;
+
+}

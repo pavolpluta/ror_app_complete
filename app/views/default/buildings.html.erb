@@ -1,0 +1,48 @@
+<% @title= "Buildings" %>
+
+<%= render 'layouts/navigation' %>
+<div class="jumbotron">
+  <h1 align="center">Reservation System </h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-2 col-xs-8">
+      <input class="form-control" id="searchBuilding" type="text" placeholder="Vyhľadaj budovu...">
+    </div>
+  </div>
+
+
+  <div id="building" class="list-group text-center col-xs-8 col-xs-offset-2 buildings">
+    <div class="around_link_div">
+      <div class="button_today_div">
+        <%= button_to "INFO", rooms_path, :method => "get", class: "btn btn-primary btn-sm btn-custom", form: {target: '_blank'} %>
+      </div>
+      <%= link_to "Slovakia", rooms_path, class: "list-group-item" %>
+    </div>
+    <div class="around_link_div">
+      <div class="button_today_div">
+        <%= button_to "INFO", rooms_path, :method => "get", class: "btn btn-primary btn-sm btn-custom", form: {target: '_blank'} %>
+      </div>
+      <%= link_to "Czech Republic", rooms_path, class: "list-group-item" %>
+    </div>
+    <div class="around_link_div">
+      <div class="button_today_div">
+        <%= button_to "INFO", rooms_path, :method => "get", class: "btn btn-primary btn-sm btn-custom", form: {target: '_blank'} %>
+      </div>
+      <%= link_to "Germany", rooms_path, class: "list-group-item" %>
+    </div>
+    <div class="around_link_div">
+      <div class="button_today_div">
+        <%= button_to "INFO", rooms_path, :method => "get", class: "btn btn-primary btn-sm btn-custom", form: {target: '_blank'} %>
+      </div>
+      <%= link_to "France", rooms_path, class: "list-group-item" %>
+    </div>
+    <div class="around_link_div">
+      <div class="button_today_div">
+        <%= button_to "INFO", rooms_path, :method => "get", class: "btn btn-primary btn-sm btn-custom", form: {target: '_blank'} %>
+      </div>
+      <%= link_to "Sweden", rooms_path, class: "list-group-item" %>
+    </div>
+  </div>
+</div>
