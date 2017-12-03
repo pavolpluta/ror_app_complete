@@ -1,6 +1,6 @@
 
 //Filtering
-$(document).ready(function(){
+$(document).on("turbolinks:load",function(){
     $("#searchBuilding").on("keyup", function() {
         var value = $(this).val().toLowerCase();
         $(".buildings .around_link_div,.rooms a").filter(function() {

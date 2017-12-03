@@ -11,7 +11,7 @@
       <h1 class="text-center">Reservation System</h1>
     <% elsif current_page?(schedule_path) %>
       <h2 class="text-center">Schedule of a Room</h2>
-    <% elsif current_page?(rooms_path) %>
+    <% elsif @building && current_page?(building_path(@building)) %>
       <h2 class="text-center">Select a Room</h2>
     <% elsif current_page?(day_info_path) %>
       <h2 class="text-center">Day Info</h2>

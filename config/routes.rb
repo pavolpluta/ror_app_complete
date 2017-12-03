@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+
+  namespace :admin do
+    get 'buildings', to: 'buildings#index'
+  end
+
   root to: 'default#buildings'
+  get "buildings/:id", to: "default#show", as: 'building'
   get 'contact', to: 'default#contact'
-  get 'rooms', to: 'default#rooms'
   get 'schedule', to: 'default#schedule'
   get 'day_info', to: 'default#day_info'
 end

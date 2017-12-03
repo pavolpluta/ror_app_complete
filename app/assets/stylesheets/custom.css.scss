@@ -46,7 +46,7 @@ body {
 .nav.navbar-nav li.active a:hover{
   background-color: #E7E7E7;
 }
-/* buildings.html.erb */
+/* index.html.erb */
 
 .buildings  a{
   border: none;
@@ -140,14 +140,13 @@ body {
   font-size: small;
 }
 
-/* rooms.html.erb */
+/* show.html.erb */
 
 .back {
   color: #0f0f0f
 }
 
 @media (max-width: 768px){
-
   .rooms{
     max-height: 500px;
     overflow-y: scroll;

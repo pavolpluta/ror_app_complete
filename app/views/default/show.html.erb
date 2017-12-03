@@ -1,0 +1,23 @@
+<% @title= "Room" %>
+
+<%= render 'layouts/navigation' %>
+
+<%= render 'jumbotron' %>
+
+<% if !@building_rooms.empty? %>
+<div class="row">
+  <div class="col-xs-offset-2 col-xs-8">
+    <input class="form-control" id="searchBuilding" type="text" placeholder="Search for a Room...">
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="list-group text-center rooms">
+   <% @building_rooms.each do |room|%>
+      <%= link_to room.title, schedule_path, class: "list-group-item col-md-4 col-sm-6 room" %>
+    <% end %>
+  </div>
+</div>
+<% else %>
+  <h1 align="center">No rooms found</h1>
+<% end %>

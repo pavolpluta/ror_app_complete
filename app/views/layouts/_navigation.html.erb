@@ -9,12 +9,12 @@
   <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
       <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Buildings", root_path%></li>
+      <% if logged_in? %>
       <li class="<%= 'active' if current_page?(contact_path) %>"><%= link_to "Contact", contact_path %></li>
+      <% end %>
     </ul>
-    <% if logged_in? %>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Admin", "#" %></li>
+        <li class="<%= 'active' if current_page?(admin_buildings_path) %>"><%= link_to "Admin", admin_buildings_path %></li>
       </ul>
-    <% end %>
   </div>
 </nav>

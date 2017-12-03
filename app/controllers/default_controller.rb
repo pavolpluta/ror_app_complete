@@ -1,10 +1,12 @@
 class DefaultController < ApplicationController
-  before_action :authenticate, only: [:contact]
+
   def buildings
     @buildings = Building.all
   end
 
-  def rooms
+  def show
+    set_building
+    @building_rooms = @building.rooms
 
   end
 
@@ -19,4 +21,11 @@ class DefaultController < ApplicationController
   def day_info
 
   end
+
+  private
+
+  def set_building
+    @building = Building.find(params[:id])
+  end
+
 end

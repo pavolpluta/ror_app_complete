@@ -53,8 +53,10 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Bullet gem
+  # GEM MI NEDOVOLIL PREJST .EACH CYKLOM V SUBORE DEFAULT/SHOW.HTML.ERB - HADZAL MI NOMETHOD ERROR- CHYBU SOM HLADAL ASI HODINU.
+  # VZHLADOM NA TO, ZE HO NEVIEM SPRAVNE NAKONFIGUROVAT, HO VYPINAM.
   config.after_initialize do
-    Bullet.enable = true
+    Bullet.enable = false
     Bullet.alert = true
     Bullet.bullet_logger = true
     Bullet.console = true
