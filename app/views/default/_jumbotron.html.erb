@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <div class="container">
+    <% if !current_page?(root_path) && !current_page?(contact_path) %>
+      <%= link_to root_path, class: "back" do %>
+        <h2 class="col-xs-1 ">
+          <span class="glyphicon glyphicon-fast-backward"></span>
+        </h2>
+      <% end %>
+    <% end %>
+    <% if current_page?(root_path) %>
+      <h1 class="text-center">Reservation System</h1>
+    <% elsif current_page?(schedule_path) %>
+      <h2 class="text-center">Schedule of a Room</h2>
+    <% elsif current_page?(rooms_path) %>
+      <h2 class="text-center">Select a Room</h2>
+    <% elsif current_page?(day_info_path) %>
+      <h2 class="text-center">Day Info</h2>
+    <% elsif current_page?(contact_path) %>
+      <h2 class="text-center">Contact</h2>
+    <% end %>
+  </div>
+</div>

@@ -11,9 +11,10 @@
       <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Buildings", root_path%></li>
       <li class="<%= 'active' if current_page?(contact_path) %>"><%= link_to "Contact", contact_path %></li>
     </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Admin", "#" %></li>
-
-    </ul>
+    <% if logged_in? %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Admin", "#" %></li>
+      </ul>
+    <% end %>
   </div>
 </nav>

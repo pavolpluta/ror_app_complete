@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'contact', to: 'default#contact'
   get 'rooms', to: 'default#rooms'
   get 'schedule', to: 'default#schedule'
+  get 'day_info', to: 'default#day_info'
 end

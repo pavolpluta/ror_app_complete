@@ -171,3 +171,28 @@ body {
   color: #0f0f0f;
 
 }
+
+/* day_info.html.erb */
+
+#table-custom td{
+  height: 60px;
+}
+
+#table-custom td:not(:last-child) {
+  border-right: solid 1px lightgray;
+}
+
+#table-custom td{
+  vertical-align:middle;
+}
+
+#table-custom th{
+  font-size: 22px;
+}
+
+@media (max-width: 768px) {
+  .table-responsive{
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+}

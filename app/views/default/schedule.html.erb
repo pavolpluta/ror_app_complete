@@ -2,23 +2,125 @@
 
 <%= render 'layouts/navigation' %>
 
-<div class="jumbotron jumbotron_others">
-  <div class="container">
-    <%= link_to root_path, class:"back" do %>
-      <h2 class="col-xs-1 ">
-        <span class="glyphicon glyphicon-fast-backward"></span>
-      </h2>
-    <% end %>
-
-    <h2 class="text-center">Schedule of a Room</h2>
-  </div>
-</div>
+<%= render 'jumbotron' %>
 
 <div class="container">
   <%= link_to :back, class:"back" do %>
-    <h2 class="col-xs-1 ">
+    <h2 class="col-xs-12 col-sm-1">
       <span class="glyphicon glyphicon-arrow-left"></span>
     </h2>
   <% end %>
+
+  <h2 class="text-center">Schedule of a Room 'X.X'</h2>
+
+  <br>
+  <div class="table-responsive">
+    <table id="schedule_table" class="table table-striped table-bordered">
+      <thead>
+      <tr>
+        <th></th>
+        <th>8:00 - 8:55</th>
+        <th>9:00 - 9:55</th>
+        <th>10:00 - 10:55</th>
+        <th>11:00 - 11:55</th>
+        <th>12:00 - 12:55</th>
+        <th>13:00 - 13:55</th>
+        <th>14:00 - 14:55</th>
+        <th>15:00 - 15:55</th>
+        <th>16:00 - 16:55</th>
+        <th>17:00 - 17:55</th>
+        <th>18:00 - 18:55</th>
+        <th>19:00 - 19:55</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <div class="day text-center"><strong>Pondelok</strong></div>
+        </td>
+        <td><a href="#">HODINA</a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="#">HODINA</a></td>
+        <td><a href="#">HODINA</a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="day text-center"><strong>Utorok</strong></div>
+        </td>
+        <td></td>
+        <td></td>
+        <td><a href="#">HODINA</a></td>
+        <td><a href="#">HODINA</a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="#">HODINA</a></td>
+        <td></td>
+        <td><a href="#">HODINA</a></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="day text-center"><strong>Streda</strong></div>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="#">HODINA</a></td>
+        <td><a href="#">HODINA</a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="day text-center"><strong>Štvrtok</strong></div>
+        </td>
+        <td><a href="#">HODINA</a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="#">HODINA</a></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="day text-center"><strong>Piatok</strong></div>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="#">HODINA</a></td>
+        <td><a href="#">HODINA</a></td>
+        <td><a href="#">HODINA</a></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>
