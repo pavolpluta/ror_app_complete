@@ -6,7 +6,7 @@ class Building < ApplicationRecord
             length: { minimum: 3, maximum: 50},
             uniqueness: true
   validates :code, presence: true,
-            length: {in: 6..7},
+            length: {minimum: 3},
             uniqueness: {case_sensitive: false}
 
 end

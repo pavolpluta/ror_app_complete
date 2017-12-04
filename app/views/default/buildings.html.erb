@@ -1,6 +1,5 @@
 <% @title= "Buildings" %>
 
-<%= render 'layouts/navigation' %>
 <%= render 'jumbotron' %>
 
 <div class="container">
@@ -18,7 +17,7 @@
         <div class="button_today_div">
           <%= button_to "DAY INFO", day_info_path, :method => "get", class: "btn btn-primary btn-sm btn-custom", form: {target: '_blank'} %>
         </div>
-        <%= link_to building.title, building_path(building), class: "list-group-item" %>
+        <%= link_to building.title, show_building_path(building), class: "list-group-item" %>
         </div>
         <% end %>
     <% else %>

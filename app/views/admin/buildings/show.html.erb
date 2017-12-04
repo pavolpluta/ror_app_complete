@@ -1,0 +1,22 @@
+<% @title = "Admin" %>
+
+<div class="container text-center">
+  <h1>Building: <%= @building.title %></h1>
+  <h2 align="left">Rooms:</h2>
+  <% if !@building_rooms.empty? %>
+    <div class="container">
+      <div align="center" class="list-group">
+      <% @building_rooms.each do |room| %>
+          <%= link_to room.title, "#", class: "list-group-item custom-width list-group-custom" %>
+      <% end %>
+      </div>
+    </div>
+    <%= will_paginate @building_rooms %>
+
+  <% else %>
+    <h1>No rooms found.</h1>
+    <% end %>
+  <div class="help-block">
+    <%= link_to "Return to all buildings", admin_buildings_path, class: "pull-left" %>
+  </div>
+</div>

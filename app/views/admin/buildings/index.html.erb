@@ -1,1 +1,24 @@
-<%= render 'layouts/navigation' %>
+<% @title= "Admin" %>
+
+<div class="container">
+  <div class="row">
+
+    <h1 align="left">Buildings: <%= @buildings.count %> <%= link_to "Create new building", new_admin_building_path,
+                                                                   class: "btn btn-success btn-lg pull-right" %></h1>
+  &nbsp;</div>
+<div class="help-block">
+    <% @buildings.each do |building| %>
+      <div class="well center-block text-center custom-width">
+      <%= link_to building.title, admin_building_path(building), class: "list-group-item-heading" %>
+        <div>
+        <small> <%= pluralize(building.rooms.count, "room") %></small>
+        </div>
+        <div class="building-actions">
+          <%= link_to "Edit this article", edit_admin_building_path(building), class: "btn btn-xs btn-warning" %>
+        </div>
+      </div>
+    <% end %>
+    <%= will_paginate class: "text-center" %>
+ </div>
+</div>
+

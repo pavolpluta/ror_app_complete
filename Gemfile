@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'simple_form'
 gem 'enumerize'
+gem 'will_paginate', '3.1.5'
+gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bullet', group: 'development'
 
 group :development, :test do

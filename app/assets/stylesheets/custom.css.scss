@@ -46,7 +46,7 @@ body {
 .nav.navbar-nav li.active a:hover{
   background-color: #E7E7E7;
 }
-/* index.html.erb */
+/* buildings.html.erb */
 
 .buildings  a{
   border: none;
@@ -194,4 +194,24 @@ body {
     max-height: 500px;
     overflow-y: scroll;
   }
+}
+
+/* admin/buildings index */
+
+.custom-width {
+  width: 50%;
+
+}
+
+.list-group-custom{
+  background-color: #eaeaea;
+  border-top-color: rgb(149, 149, 149);
+  border-bottom-color: rgb(149, 149, 149);
+}
+
+.building-actions{
+  border-top: 1px solid darkgrey;
+  margin-top: 5px;
+  padding-top: 10px;
+  margin-bottom: -5px;
 }

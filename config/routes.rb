@@ -3,11 +3,11 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    get 'buildings', to: 'buildings#index'
+    resources :buildings
   end
 
   root to: 'default#buildings'
-  get "buildings/:id", to: "default#show", as: 'building'
+  get 'buildings/:id', to: 'default#show', as: 'show_building'
   get 'contact', to: 'default#contact'
   get 'schedule', to: 'default#schedule'
   get 'day_info', to: 'default#day_info'
