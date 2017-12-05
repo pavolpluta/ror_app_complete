@@ -40,11 +40,11 @@ body {
 }
 
 .nav.navbar-nav li.active a{
-  background-color: #E7E7E7;
+  background-color: #c6c6c6;
 }
 
 .nav.navbar-nav li.active a:hover{
-  background-color: #E7E7E7;
+  background-color: #c6c6c6;
 }
 /* buildings.html.erb */
 
@@ -196,7 +196,7 @@ body {
   }
 }
 
-/* admin/buildings index */
+/* admin/buildings */
 
 .custom-width {
   width: 50%;
@@ -210,8 +210,6 @@ body {
 }
 
 .building-actions{
-  border-top: 1px solid darkgrey;
-  margin-top: 5px;
-  padding-top: 10px;
-  margin-bottom: -5px;
+  margin-top: -10px;
+  margin-bottom: 15px;
 }

@@ -2,16 +2,30 @@
 
 <div class="container text-center">
   <h1>Building: <%= @building.title %></h1>
-  <h2 align="left">Rooms:</h2>
+  <div class="row">
+    <h2 align="left">Rooms: <%=link_to "Create New Room", new_admin_building_room_path(building_id: @building.id), class: "btn btn-success pull-right" %></h2>
+  </div>
   <% if !@building_rooms.empty? %>
     <div class="container">
-      <div align="center" class="list-group">
-      <% @building_rooms.each do |room| %>
-          <%= link_to room.title, "#", class: "list-group-item custom-width list-group-custom" %>
-      <% end %>
+      <div class="help-block">
+        <% @building_rooms.each do |room| %>
+          <div class="well center-block text-center custom-width">
+            <div class="building-actions">
+              <div class="pull-left">
+                <%= link_to "Edit room", edit_admin_building_room_path(room), class: "btn btn-xs btn-warning" %>
+              </div>
+              <div class="pull-right">
+                <%= link_to "Delete building", admin_building_room_path(room), method: :delete,
+                            data: {confirm: "Are you sure?"},
+                            class: "btn btn-xs btn-danger" %>
+              </div>
+            </div>
+            <%= link_to room.title, admin_building_room_path(room), class: "list-group-item-heading" %>
+          </div>
+        <% end %>
+        <%= will_paginate @building_rooms %>
       </div>
     </div>
-    <%= will_paginate @building_rooms %>
 
   <% else %>
     <h1>No rooms found.</h1>
@@ -20,3 +34,9 @@
     <%= link_to "Return to all buildings", admin_buildings_path, class: "pull-left" %>
   </div>
 </div>
+
+<!--<div align="center" class="list-group">-->
+<!--<% @building_rooms.each do |room| %>-->
+  <!--<%= link_to room.title, "#", class: "list-group-item custom-width list-group-custom" %>-->
+  <!--<% end %>-->
+<!--</div>-->

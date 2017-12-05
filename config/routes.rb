@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :buildings
+    resources :buildings do
+      resources :rooms, except: [:index]
+    end
   end
 
   root to: 'default#buildings'
