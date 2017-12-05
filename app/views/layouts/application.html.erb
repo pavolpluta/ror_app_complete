@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @title %></title>
+    <title>  <%= if request.path_info.include?('admin')
+                  @title = "Admin"
+               else
+                  @title
+                 end %>
+    </title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,11 +14,10 @@
   </head>
 
   <body>
-  <% if logged_in? %>
-    <% @title = "Admin" %>
-  <% end %>
+
   <%= render 'layouts/navigation' %>
   <%= render 'layouts/messages' %>
     <%= yield %>
+
   </body>
 </html>

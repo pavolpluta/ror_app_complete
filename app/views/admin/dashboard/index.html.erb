@@ -3,10 +3,19 @@
     <div class="well well-lg center-block text-center col-sm-6">
       <%= link_to "Buildings administration", admin_buildings_path, class: "list-group-item-heading" %>
       <div>
-      <small> <%= pluralize(@buildings.count, "building") %></small>
+      <small> <%= pluralize(@buildings.count, "Building") %></small>
       </div>
     </div>
   <div class="well well-lg center-block text-center col-sm-6">
-    <%= link_to "Another administration", admin_buildings_path, class: "list-group-item-heading" %>
+    <%= link_to "Courses administration", admin_courses_path, class: "list-group-item-heading" %>
+    <div>
+      <small> <%= pluralize(@courses.count, "Course") %></small>
+    </div>
+  </div>
+  <div class="well well-lg center-block text-center col-sm-6">
+    <%= link_to "Students administration", admin_students_path, class: "list-group-item-heading" %>
+    <div>
+      <small> <%= pluralize(@students.count, "Student") %></small>
+    </div>
   </div>
 </div>

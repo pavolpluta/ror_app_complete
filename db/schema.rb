@@ -10,13 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205152954) do
+ActiveRecord::Schema.define(version: 20171205200809) do
 
   create_table "buildings", force: :cascade do |t|
     t.string "title"
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "title"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "language"
+    t.integer "study_type"
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -27,6 +36,7 @@ ActiveRecord::Schema.define(version: 20171205152954) do
     t.datetime "updated_at", null: false
     t.integer "room_id"
     t.integer "teacher_id"
+    t.integer "course_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -35,6 +45,29 @@ ActiveRecord::Schema.define(version: 20171205152954) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "building_id"
+  end
+
+  create_table "student_assignments", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.integer "study_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teacher_assignments", force: :cascade do |t|
+    t.integer "teacher_id"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "teachers", force: :cascade do |t|

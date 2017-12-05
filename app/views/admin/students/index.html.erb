@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+
+    <h1 align="left">Students: <%= @students.count %> <%= link_to "Create new student", new_admin_student_path,
+                                                                  class: "btn btn-success btn-lg pull-right" %></h1>
+    &nbsp;
+  </div>
+  <form class="form-inline">
+      <div class="form-group">
+        <%= form_tag(admin_students_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search by Last Name", class: "form-control"%>
+            <%= submit_tag "Search", :name => nil, class: 'btn btn-default' %>
+        <% end %>
+      </div>
+  </form>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+      </thead>
+      <% @students.each do |student| %>
+        <tbody>
+        <tr>
+          <td><%= link_to student.first_name + " " + student.last_name, admin_student_path(student) %></td>
+          <td><%= student.email %>
+            <div class="pull-right">
+              <%= link_to "Edit student", edit_admin_student_path(student), class: "btn btn-xs btn-warning" %>
+              <%= link_to "Delete student", admin_student_path(student), method: :delete,
+                          data: {confirm: "Are you sure?"},
+                          class: "btn btn-xs btn-danger" %>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+  <div class=" col-sm-12 text-center">
+    <%= will_paginate class: "text-center" %>
+    <%= link_to "Return to Dashboard", admin_root_path %>
+  </div>
+</div>

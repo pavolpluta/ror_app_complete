@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+
+    <h1 align="left">Courses: <%= @courses.count %> <%= link_to "Create new course", new_admin_course_path,
+                                                                    class: "btn btn-success btn-lg pull-right" %></h1>
+    &nbsp;</div>
+  <div class="help-block">
+    <% @courses.each do |course| %>
+      <div class="well center-block text-center col-sm-6">
+        <div class="building-actions">
+          <div class="pull-left">
+            <%= link_to "Edit course", edit_admin_course_path(course), class: "btn btn-xs btn-warning" %>
+          </div>
+          <div class="pull-right">
+            <%= link_to "Delete course", admin_course_path(course), method: :delete,
+                        data: {confirm: "Are you sure?"},
+                        class: "btn btn-xs btn-danger" %>
+          </div>
+        </div>
+        <%= link_to course.title + " /#{course.language == 1 ? 'CZ' : 'EN'}/", admin_course_path(course), class: "list-group-item-heading" %>
+        <div>
+          <small> <%= course.study_type.upcase %></small>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class=" col-sm-12">
+    <%= will_paginate class: "text-center" %>
+  <%= link_to "Return to Dashboard", admin_root_path %>
+  </div>
+</div>
