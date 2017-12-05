@@ -9,6 +9,9 @@
   </head>
 
   <body>
+  <% if logged_in? %>
+    <% @title = "Admin" %>
+  <% end %>
   <%= render 'layouts/navigation' %>
   <%= render 'layouts/messages' %>
     <%= yield %>

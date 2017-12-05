@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :buildings do
       resources :rooms, except: [:index]
     end
+
+    root to: 'dashboard#index'
   end
 
   root to: 'default#buildings'

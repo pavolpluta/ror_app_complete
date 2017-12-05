@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 align="center">Dashboard</h1>
+    <div class="well well-lg center-block text-center col-sm-6">
+      <%= link_to "Buildings administration", admin_buildings_path, class: "list-group-item-heading" %>
+      <div>
+      <small> <%= pluralize(@buildings.count, "building") %></small>
+      </div>
+    </div>
+  <div class="well well-lg center-block text-center col-sm-6">
+    <%= link_to "Another administration", admin_buildings_path, class: "list-group-item-heading" %>
+  </div>
+</div>

@@ -11,12 +11,12 @@
         <div class="well center-block text-center">
           <div class="building-actions">
             <div class="pull-left">
-              <%= link_to "Edit building", edit_admin_building_path(building), class: "btn btn-xs btn-warning" %>
+              <%= link_to "Edit building", edit_admin_building_path(building), class: "btn btn-sm btn-warning" %>
             </div>
             <div class="pull-right">
               <%= link_to "Delete building", admin_building_path(building), method: :delete,
                           data: {confirm: "Are you sure?"},
-                          class: "btn btn-xs btn-danger" %>
+                          class: "btn btn-sm btn-danger" %>
             </div>
           </div>
         <%= link_to building.title, admin_building_path(building), class: "list-group-item-heading" %>
@@ -27,6 +27,7 @@
       <% end %>
       <%= will_paginate class: "text-center" %>
    </div>
+    <%= link_to "Return to Dashboard", admin_root_path %>
 
 </div>
 

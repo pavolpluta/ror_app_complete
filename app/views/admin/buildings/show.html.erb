@@ -1,4 +1,3 @@
-<% @title = "Admin" %>
 
 <div class="container text-center">
   <h1>Building: <%= @building.title %></h1>
@@ -12,15 +11,15 @@
           <div class="well center-block text-center custom-width">
             <div class="building-actions">
               <div class="pull-left">
-                <%= link_to "Edit room", edit_admin_building_room_path(room), class: "btn btn-xs btn-warning" %>
+                <%= link_to "Edit room", edit_admin_building_room_path(@building, room), class: "btn btn-xs btn-warning" %>
               </div>
               <div class="pull-right">
-                <%= link_to "Delete building", admin_building_room_path(room), method: :delete,
+                <%= link_to "Delete room", admin_building_room_path(@building, room), method: :delete,
                             data: {confirm: "Are you sure?"},
                             class: "btn btn-xs btn-danger" %>
               </div>
             </div>
-            <%= link_to room.title, admin_building_room_path(room), class: "list-group-item-heading" %>
+            <%= link_to room.title, admin_building_room_path(building_id: @building.id, id: room.id), class: "list-group-item-heading" %>
           </div>
         <% end %>
         <%= will_paginate @building_rooms %>
@@ -30,13 +29,7 @@
   <% else %>
     <h1>No rooms found.</h1>
     <% end %>
-  <div class="help-block">
-    <%= link_to "Return to all buildings", admin_buildings_path, class: "pull-left" %>
+  <div class="text-center">
+    <%= link_to "Return to all buildings", admin_buildings_path %>
   </div>
 </div>
-
-<!--<div align="center" class="list-group">-->
-<!--<% @building_rooms.each do |room| %>-->
-  <!--<%= link_to room.title, "#", class: "list-group-item custom-width list-group-custom" %>-->
-  <!--<% end %>-->
-<!--</div>-->
