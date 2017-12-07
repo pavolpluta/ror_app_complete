@@ -2,55 +2,70 @@
 <%= render 'jumbotron' %>
 
 <div class="container">
+  <h2 align="center"><%= "#{Date.new(2017,12,6).strftime("%d.%m.%Y")}" %></h2>
+  <hr>
   <div id= "table-custom" class="table-responsive">
     <table class="table table-hover">
       <thead>
       <tr>
-        <th colspan="3" class="text-center">DAY</th>
+        <th>Course</th>
+        <th>Room</th>
+        <th>Time</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>Telocvik</td>
-        <td>Miestnosť 1.1</td>
-        <td>8:30-9:30</td>
-      </tr>
-      <tr>
-        <td>Programovanie</td>
-        <td>Miestnosť 2.2</td>
-        <td>9:45-11:00</td>
-      </tr>
-      <tr>
-        <td>Filozófia</td>
-        <td>Miestnosť 3.3</td>
-        <td>11:05-12:30</td>
-      </tr>
-      <tr>
-        <td>Umenie</td>
-        <td>Miestnosť 1.2</td>
-        <td>11:00-12:30</td>
-      </tr>
-      <tr>
-        <td>Antická literatúra</td>
-        <td>Miestnosť 2.1</td>
-        <td>14:00-15:30</td>
-      </tr>
-      <tr>
-        <td>História Veľkej Británie</td>
-        <td>Miestnosť 1.1</td>
-        <td>14:00-15:30</td>
-      </tr>
-      <tr>
-        <td>Programovanie 8</td>
-        <td>Miestnosť 2.2</td>
-        <td>16:00-17:30</td>
-      </tr>
+      <% @lessons.each do |lesson| %>
+            <tr>
+              <td><%= lesson.course.title %>
+                <div>
+                  <small><%=pluralize(lesson.course.students.count, "student") %></small>
+                </div>
+              </td>
+              <td><%= lesson.room.title %></td>
+              <td><%= "#{convert_time(lesson.start_at)} - #{convert_time(lesson.end_at)}" %></td>
+            </tr>
+      <% end %>
+      <!--<tr>-->
+        <!--<td>Telocvik</td>-->
+        <!--<td>Miestnosť 1.1</td>-->
+        <!--<td>8:30-9:30</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td>Programovanie</td>-->
+        <!--<td>Miestnosť 2.2</td>-->
+        <!--<td>9:45-11:00</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td>Filozófia</td>-->
+        <!--<td>Miestnosť 3.3</td>-->
+        <!--<td>11:05-12:30</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td>Umenie</td>-->
+        <!--<td>Miestnosť 1.2</td>-->
+        <!--<td>11:00-12:30</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td>Antická literatúra</td>-->
+        <!--<td>Miestnosť 2.1</td>-->
+        <!--<td>14:00-15:30</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td>História Veľkej Británie</td>-->
+        <!--<td>Miestnosť 1.1</td>-->
+        <!--<td>14:00-15:30</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td>Programovanie 8</td>-->
+        <!--<td>Miestnosť 2.2</td>-->
+        <!--<td>16:00-17:30</td>-->
+      <!--</tr>-->
 
-      <tr>
-        <td>Starcraft</td>
-        <td>Miestnosť 1.1</td>
-        <td>17:00-20:00</td>
-      </tr>
+      <!--<tr>-->
+        <!--<td>Starcraft</td>-->
+        <!--<td>Miestnosť 1.1</td>-->
+        <!--<td>17:00-20:00</td>-->
+      <!--</tr>-->
       </tbody>
     </table>
   </div>

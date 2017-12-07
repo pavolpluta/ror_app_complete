@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-  default_scope { order(last_name: :asc) }
+  default_scope { order(:study_type, :last_name) }
   has_many :student_assignments
   has_many :courses, through: :student_assignments
 
@@ -31,7 +31,4 @@ class Student < ApplicationRecord
         end
       end
     end
-
-
-
 end

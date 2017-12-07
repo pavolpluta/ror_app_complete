@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   root to: 'default#buildings'
   get 'buildings/:id', to: 'default#show', as: 'show_building'
   get 'contact', to: 'default#contact'
-  get 'schedule', to: 'default#schedule'
-  get 'day_info', to: 'default#day_info'
+  get 'buildings/:id/:room_id/schedule', to: 'default#schedule', as: 'schedule'
+  get 'buildings/:id/day_info', to: 'default#day_info', as: 'day_info'
 end

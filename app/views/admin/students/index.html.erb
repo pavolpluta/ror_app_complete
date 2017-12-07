@@ -19,15 +19,15 @@
       <tr>
         <th>Name</th>
         <th>Email</th>
+        <th>Study Type</th>
       </tr>
       </thead>
       <% @students.each do |student| %>
         <tbody>
         <tr>
           <td><%= link_to student.first_name + " " + student.last_name, admin_student_path(student) %></td>
-          <td><%= student.email %>
-
-          </td>
+          <td><%= student.email %></td>
+          <td><%= student.study_type %></td>
         </tr>
         </tbody>
       <% end %>

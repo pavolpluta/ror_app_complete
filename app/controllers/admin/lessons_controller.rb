@@ -47,13 +47,7 @@ module Admin
       redirect_to admin_course_lessons_path(@course)
     end
 
-    def convert_time(datetime)
-      datetime = datetime.strftime("%H:%M")
-    end
 
-    def convert_day(datetime)
-      datetime = datetime.strftime("%-d %b %Y")
-    end
 
     private
 

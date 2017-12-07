@@ -3,8 +3,6 @@ module Admin
     before_action :set_building
     before_action :set_room, only: [:show, :edit, :update, :destroy]
 
-    helper_method :convert_time, :convert_day
-
     def new
       @room = Room.new(building: @building)
     end
@@ -41,14 +39,6 @@ module Admin
       @room.destroy
       flash[:danger] = "Room was deleted"
       redirect_to admin_building_path(@building)
-    end
-
-    def convert_time(datetime)
-      datetime = datetime.strftime("%H:%M")
-    end
-
-    def convert_day(datetime)
-      datetime = datetime.strftime("%-d %b %Y")
     end
 
 

@@ -9,12 +9,12 @@
     <% end %>
     <% if current_page?(root_path) %>
       <h1 class="text-center">Reservation System</h1>
-    <% elsif current_page?(schedule_path) %>
+    <% elsif @room && current_page?(schedule_path(@building, @room)) %>
       <h2 class="text-center">Schedule of a Room</h2>
     <% elsif @building && current_page?(show_building_path(@building)) %>
       <h2 class="text-center">Select a Room</h2>
-    <% elsif current_page?(day_info_path) %>
-      <h2 class="text-center">Day Info</h2>
+    <% elsif @building && current_page?(day_info_path(@building)) %>
+      <h2 class="text-center"> '<%= @building.title %>' Day Schedule</h2>
     <% elsif current_page?(contact_path) %>
       <h2 class="text-center">Contact</h2>
     <% end %>

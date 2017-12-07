@@ -14,6 +14,10 @@
     </div>
   </form>
 
+  <% if @courses.empty? %>
+    <h1 align="center">NO COURSES FOUND.</h1>
+  <% end %>
+
   <div class="help-block">
     <% @courses.each do |course| %>
       <div class="well center-block text-center col-sm-6">

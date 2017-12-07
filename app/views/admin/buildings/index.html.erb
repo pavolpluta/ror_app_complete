@@ -6,10 +6,11 @@
     <h1 align="left">Buildings: <%= @buildings.count %> <%= link_to "Create new building", new_admin_building_path,
                                                                    class: "btn btn-success btn-lg pull-right" %></h1>
   &nbsp;</div>
-    <div class="help-block">
+    <% if @buildings.empty? %>
+      <h1 align="center">NO BUILDINGS FOUND.</h1>
+    <% end %>
       <% @buildings.each do |building| %>
         <div class="well center-block text-center">
-          <div class="building-actions">
             <div class="pull-left">
               <%= link_to "Edit building", edit_admin_building_path(building), class: "btn btn-sm btn-warning" %>
             </div>
@@ -18,7 +19,6 @@
                           data: {confirm: "Are you sure?"},
                           class: "btn btn-sm btn-danger" %>
             </div>
-          </div>
         <%= link_to building.title, admin_building_path(building), class: "list-group-item-heading" %>
           <div>
           <small> <%= pluralize(building.rooms.count, "room") %></small>
@@ -26,7 +26,7 @@
         </div>
       <% end %>
       <%= will_paginate class: "text-center" %>
-   </div>
+
     <%= link_to "Return to Dashboard", admin_root_path %>
 
 </div>
