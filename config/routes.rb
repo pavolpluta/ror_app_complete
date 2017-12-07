@@ -7,8 +7,12 @@ Rails.application.routes.draw do
       resources :rooms, except: [:index]
     end
 
-    resources :courses
+    resources :courses do
+      resources :lessons
+    end
+
     resources :students
+    resources :teachers
 
     root to: 'dashboard#index'
   end

@@ -1,0 +1,29 @@
+<%= render 'shared/errors', obj: @lesson %>
+
+<%= simple_form_for([:admin, @course, @lesson]) do |f| %>
+  <div class="form-inputs">
+    <div class="col-md-6">
+    <%= f.input :start_at, minute_step: 5, start_year: Date.today.year %>
+    </div>
+    <div class="col-md-6">
+    <%= f.input :end_at, minute_step: 5, start_year: Date.today.year %>
+    </div>
+    <div class="col-md-6">
+      <%= f.association :room, :label_method => lambda { |room| "#{room.title} (#{room.building.title})"}%>
+    </div>
+    <div class="col-md-6">
+      <%= f.association :teacher, :label_method => lambda { |teacher| "#{teacher.first_name} #{teacher.last_name}"},
+      collection: @course.teachers%>
+    </div>
+  </div>
+<div class="col-md-12">
+  <div class="form-actions text-center">
+    <%= f.submit class: "btn btn-primary btn-lg" %>
+  </div>
+</div>
+<% end %>
+
+<div class="col-md-12">
+  <%= link_to "Return to #{@course.title} lessons", admin_course_lessons_path(@course)%>
+  <%= link_to "Return to all courses", admin_courses_path, class: "pull-right" %>
+</div>

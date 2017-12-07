@@ -7,7 +7,7 @@ module Admin
     end
 
     def index
-      @courses = Course.paginate(page: params[:page], per_page: 10)
+      @courses = Course.search(params[:search]).paginate(page: params[:page], per_page: 10)
     end
 
     def edit

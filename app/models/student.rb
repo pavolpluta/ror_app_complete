@@ -13,20 +13,22 @@ class Student < ApplicationRecord
             uniqueness: {case_sensitive: false},
             format: {with: VALID_EMAIL_REGEX}
 
-  before_save :set_course_study_type if :courses
+  validate :check_courses_study_type if :courses
 
   extend Enumerize
 
   enumerize :study_type, in: {full_time: 1, part_time: 2}
 
   def self.search(search)
-    where("first_name LIKE ? OR last_name LIKE ?", "%#{search}%", "%#{search}%")
+    where("first_name LIKE ? OR last_name LIKE ? or first_name || ' ' || last_name LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
   private
-    def set_course_study_type
+    def check_courses_study_type
       self.courses.each do |course|
-        course.study_type = self.study_type
+        if course.study_type != self.study_type
+          errors.add(:course, "study type must be the same type as student's study type.")
+        end
       end
     end
 

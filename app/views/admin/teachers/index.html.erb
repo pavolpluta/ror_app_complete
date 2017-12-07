@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
 
-    <h1 align="left">Students: <%= @students.count %> <%= link_to "Create new student", new_admin_student_path,
+    <h1 align="left">Teachers: <%= @teachers.count %> <%= link_to "Create new teacher", new_admin_teacher_path,
                                                                   class: "btn btn-success btn-lg pull-right" %></h1>
     &nbsp;
   </div>
   <form class="form-inline">
-      <div class="form-group">
-        <%= form_tag(admin_students_path, :method => "get") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search for a student...", class: "form-control"%>
-            <%= submit_tag "Search", :name => nil, class: 'btn btn-default' %>
-        <% end %>
-      </div>
+    <div class="form-group">
+      <%= form_tag(admin_teachers_path, :method => "get") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search for a teacher...", class: "form-control"%>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-default" %>
+      <% end %>
+    </div>
   </form>
   <div class="table-responsive">
     <table class="table table-hover">
@@ -21,13 +21,11 @@
         <th>Email</th>
       </tr>
       </thead>
-      <% @students.each do |student| %>
+      <% @teachers.each do |teacher| %>
         <tbody>
         <tr>
-          <td><%= link_to student.first_name + " " + student.last_name, admin_student_path(student) %></td>
-          <td><%= student.email %>
-
-          </td>
+          <td><%= link_to teacher.first_name + " " + teacher.last_name, admin_teacher_path(teacher) %></td>
+          <td><%= teacher.email %></td>
         </tr>
         </tbody>
       <% end %>

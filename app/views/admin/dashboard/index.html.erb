@@ -18,4 +18,10 @@
       <small> <%= pluralize(@students.count, "Student") %></small>
     </div>
   </div>
+  <div class="well well-lg center-block text-center col-sm-6">
+    <%= link_to "Teachers administration", admin_teachers_path, class: "list-group-item-heading" %>
+    <div>
+      <small> <%= pluralize(@teachers.count, "Teacher") %></small>
+    </div>
+  </div>
 </div>

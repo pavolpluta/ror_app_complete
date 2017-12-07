@@ -1,0 +1,54 @@
+<div class="container">
+
+  <h1><%= obj.first_name + " " + obj.last_name %></h1>
+  <hr>
+
+  <table class="table table-striped table-bordered">
+    <tbody>
+    <tr>
+      <td><strong>Full name:</strong></td>
+      <td><%= obj.first_name + " " + obj.last_name %></td>
+    </tr>
+    <tr>
+      <td><strong>Email:</strong></td>
+      <td><%= obj.email%></td>
+    </tr>
+    <% if obj == @student %>
+      <tr>
+        <td><strong>Study Type:</strong></td>
+        <td><%= obj.study_type.upcase%></td>
+      </tr>
+      <tr>
+    <% end %>
+    <tr>
+      <td><strong>Courses:</strong></td>
+      <td><% obj.courses.each do |course| %>
+          <div>
+            <%=link_to "#{course.title} | #{course.language}", admin_course_path(course) %>
+          </div>
+        <% end %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<% if obj == @teacher %>
+  <div class="pull-right">
+    <%= link_to "Edit teacher", edit_admin_teacher_path(obj), class: "btn btn-warning" %>
+    <%= link_to "Delete teacher", admin_teacher_path(obj), method: :delete,
+                data: {confirm: "Are you sure?"},
+                class: "btn  btn-danger" %>
+  </div>
+
+  <%= link_to "Return to all teachers", admin_teachers_path, class: "pull-left" %>
+<% else %>
+    
+    <div class="pull-right">
+      <%= link_to "Edit student", edit_admin_student_path(obj), class: "btn btn-warning" %>
+      <%= link_to "Delete student", admin_student_path(obj), method: :delete,
+                  data: {confirm: "Are you sure?"},
+                  class: "btn  btn-danger" %>
+    </div>
+
+    <%= link_to "Return to all students", admin_students_path, class: "pull-left" %>
+  <% end %>
+</div>

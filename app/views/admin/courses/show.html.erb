@@ -1,7 +1,30 @@
 <div class="container">
-  <h1 align="center"><%= @course.title %></h1>
-  <h2 align="center">Something will be here soon.</h2>
-  <div class="text-center">
-    <%= link_to "Return to all courses", admin_courses_path %>
+  <h1 align="center"><%= "#{@course.title} /#{@course.language.upcase_first}/" %></h1>
+  <div align="center">
+    <small><%= @course.study_type.upcase %></small>
   </div>
+  <%= link_to "Return to course", admin_course_lessons_path(@course) %>
+  <hr>
+  <div class="col-md-4">
+  <h2>Teachers:</h2>
+  <%@course.teachers.each do |teacher|%>
+  <div>
+    <%=link_to "#{teacher.first_name} #{teacher.last_name}", admin_teacher_path(teacher)  %>
+  </div>
+  <% end %>
+  </div>
+
+<div class="col-md-4 col-md-offset-4">
+  <h2>Students:</h2>
+  <%@course.students.each do |student|%>
+    <div>
+      <%=link_to "#{student.first_name} #{student.last_name}", admin_student_path(student)  %>
+    </div>
+  <% end %>
+</div>
+
+  <div class="col-md-12 text-center">
+
+  </div>
+
 </div>

@@ -19,7 +19,7 @@ module Admin
       @student = Student.new(student_params)
       if @student.save
         flash[:success] = "Student was created"
-        redirect_to admin_students_path
+        redirect_to admin_student_path(@student)
       else
         render 'new'
       end
@@ -28,7 +28,7 @@ module Admin
     def update
       if @student.update(student_params)
         flash[:success] = "Student was successfully updated"
-        redirect_to admin_students_path
+        redirect_to admin_student_path(@student)
       else
         render 'edit'
       end
@@ -45,13 +45,12 @@ module Admin
     end
 
     private
-
     def set_student
       @student = Student.find(params[:id])
     end
 
     def student_params
-      params.require(:student).permit(:first_name,:last_name, :email, :study_type)
+      params.require(:student).permit(:first_name,:last_name, :email, :study_type, course_ids:[])
     end
   end
 end

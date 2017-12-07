@@ -2,7 +2,7 @@ class Room < ApplicationRecord
   belongs_to :building
   has_many :lessons, dependent: :destroy
   before_save {self.title = title.upcase_first}
-  before_save {self.code = building.code + "_" + code.upcase}
+  before_save {self.code = code.upcase}
 
   validates :title, presence: true,
             length: { minimum: 3, maximum: 50},

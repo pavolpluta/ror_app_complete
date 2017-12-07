@@ -1,1 +1,30 @@
-<h1 align="center">'<%= @room.title %>' details</h1>
+<div class="container">
+  <h1 align="center">'<%= @room.title %>' details</h1>
+  <hr>
+  <h2>Lessons in room:</h2>
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered">
+      <thead>
+      <tr>
+        <th>Course</th>
+        <th>Time</th>
+        <th>Day</th>
+        <th>Teacher</th>
+
+      </tr>
+      </thead>
+      <% @room_lessons.each do |lesson| %>
+        <tbody>
+        <tr>
+          <td><%= link_to "#{lesson.course.title} /#{lesson.course.language.upcase_first}/", admin_course_path(lesson.course) %></td>
+          <td><%= "#{convert_time(lesson.start_at)} - #{convert_time(lesson.end_at)} (#{lesson.duration} min)" %></td>
+          <td><%= convert_day(lesson.end_at)%></td>
+          <td><%= link_to lesson.teacher.first_name + " " + lesson.teacher.last_name, admin_teacher_path(lesson.teacher) %></td>
+        </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+  <%= will_paginate @room_lessons ,class: "text-center" %>
+  <%= link_to "Get back to rooms", admin_building_path(@building) %>
+</div>

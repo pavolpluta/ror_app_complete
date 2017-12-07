@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+
+    <h1 align="center">            <%= link_to "Show Details", admin_course_path(@course),
+                                               class: "btn btn-lg btn-info pull-left"%>
+
+      <%= "#{@course.title} /#{@course.language.upcase_first}/" %> <%= link_to "Create new lesson", new_admin_course_lesson_path(@course),
+                                                                  class: "btn btn-success btn-lg pull-right" %></h1>
+    &nbsp;
+  </div>
+</div>
+<div class="container-fluid">
+  <h2>Upcoming lessons</h2>
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered">
+      <thead>
+      <tr>
+        <th>Course</th>
+        <th>Time</th>
+        <th>Day</th>
+        <th>Teacher</th>
+        <th>Room</th>
+        <th>Building</th>
+      </tr>
+      </thead>
+      <% @course_lessons.each do |lesson| %>
+       <tbody>
+        <tr>
+          <td><%= lesson.course.title %></td>
+          <td><%= "#{convert_time(lesson.start_at)} - #{convert_time(lesson.end_at)} (#{lesson.duration} min)" %></td>
+          <td><%= convert_day(lesson.end_at)%></td>
+          <td><%= link_to lesson.teacher.first_name + " " + lesson.teacher.last_name, admin_teacher_path(lesson.teacher) %></td>
+          <td><%= lesson.room.title%></td>
+          <td><%= lesson.room.building.title%>
+            <%= link_to "Delete Lesson", admin_course_lesson_path(@course, lesson), method: :delete,
+                        data: {confirm: "Are you sure?"},
+                        class: "btn btn-sm btn-danger pull-right"%>
+            <%= link_to "Edit Lesson", edit_admin_course_lesson_path(@course, lesson),
+                        class: "btn btn-sm btn-warning pull-right"%>
+          </td>
+        </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+  <div class=" col-sm-12 text-center">
+  <%= will_paginate @course_lessons%>
+    <%= link_to "Return to Courses", admin_courses_path %>
+  </div>
+</div>

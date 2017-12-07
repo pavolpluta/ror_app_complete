@@ -15,7 +15,7 @@
       <% @buildings.each do |building| %>
         <div class="around_link_div">
         <div class="button_today_div">
-          <%= button_to "DAY INFO", day_info_path, :method => "get", class: "btn btn-primary btn-sm btn-custom", form: {target: '_blank'} %>
+          <%= button_to "DAY INFO", day_info_path, :method => "get", class: "btn btn-primary btn-sm btn-custom"%>
         </div>
         <%= link_to building.title, show_building_path(building), class: "list-group-item" %>
         </div>

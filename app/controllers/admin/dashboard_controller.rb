@@ -4,6 +4,7 @@ module Admin
       @buildings = Building.all
       @courses = Course.all
       @students = Student.all
+      @teachers = Teacher.all
     end
   end
 end

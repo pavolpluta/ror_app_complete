@@ -1,7 +1,7 @@
 class Building < ApplicationRecord
   has_many :rooms, dependent: :destroy
   before_save {self.title = title.upcase_first}
-  before_save {self.code = "EBC_" + code.upcase}
+  before_save {self.code = code.upcase}
 
   validates :title, presence: true,
             length: { minimum: 3, maximum: 50},
