@@ -3,7 +3,7 @@
 <%= render 'jumbotron' %>
 
 <div class="container">
-  <%= link_to :back, class:"back" do %>
+  <%= link_to show_building_path(@building), class:"back" do %>
     <h2 class="col-xs-12 col-sm-1">
       <span class="glyphicon glyphicon-arrow-left"></span>
     </h2>
@@ -16,7 +16,7 @@
     <table id="schedule_table" class="table table-striped table-bordered">
       <tbody>
       <% day = nil %>
-      <% @room.lessons.each do |lesson| %>
+      <% @lessons.each do |lesson| %>
         <% if (lesson.start_at > DateTime.new(2017,12,3)) && (lesson.end_at < DateTime.new(2017,12,11))
 
           # if (Date.today.at_beginning_of_week..Date.today.at_end_of_week).cover?(lesson.end_at)

@@ -12,7 +12,7 @@
 <div class="container-fluid">
   <h2>Lessons</h2>
 
-  <% if @course_lessons.empty? %>
+  <% if @lessons.empty? %>
     <h1 align="center">NO LESSONS FOUND.</h1>
   <% end %>
   <div class="table-responsive">
@@ -27,7 +27,7 @@
         <th>Building</th>
       </tr>
       </thead>
-      <% @course_lessons.each do |lesson| %>
+      <% @lessons.each do |lesson| %>
        <tbody>
         <tr>
           <td><%= lesson.course.title %></td>
@@ -48,7 +48,7 @@
     </table>
   </div>
   <div class=" col-sm-12 text-center">
-  <%= will_paginate @course_lessons%>
+  <%= will_paginate @lessons%>
     <%= link_to "Return to Courses", admin_courses_path %>
   </div>
 </div>

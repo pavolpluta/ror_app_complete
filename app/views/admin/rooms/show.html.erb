@@ -13,7 +13,7 @@
 
       </tr>
       </thead>
-      <% @room_lessons.each do |lesson| %>
+      <% @lessons.each do |lesson| %>
         <tbody>
         <tr>
           <td><%= link_to "#{lesson.course.title} /#{lesson.course.language.upcase_first}/", admin_course_path(lesson.course) %></td>
@@ -25,6 +25,6 @@
       <% end %>
     </table>
   </div>
-  <%= will_paginate @room_lessons ,class: "text-center" %>
+  <%= will_paginate @lessons ,class: "text-center" %>
   <%= link_to "Get back to rooms", admin_building_path(@building) %>
 </div>

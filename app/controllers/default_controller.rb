@@ -17,12 +17,15 @@ class DefaultController < ApplicationController
   def schedule
     set_building
     @room = Room.find(params[:room_id])
+    @lessons = Lesson.includes(:course,:teacher).where(room_id: @room)
   end
 
   def day_info
     set_building
-    @lessons = []
-    @building.rooms.each do |room|
+    @lessons = Lesson.includes(:course).to_a
+    @lessons.clear
+    @rooms = Room.includes(:lessons).all.where(building_id: @building)
+    @rooms.each do |room|
       room.lessons.each do |lesson|
         if lesson.start_at.to_date == Date.new(2017,12,6)
           @lessons << lesson

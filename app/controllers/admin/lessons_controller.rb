@@ -5,10 +5,13 @@ module Admin
     before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
     def index
-      @course_lessons = @course.lessons.paginate(page: params[:page], per_page: 10)
+      @lessons = Lesson.includes(:teacher,:course, :room => :building).where(course_id: @course).paginate(page: params[:page], per_page: 10)
+    #  @course_lessons = @course.lessons.paginate(page: params[:page], per_page: 10)
+
     end
 
     def new
+      @room = Room.all.includes(:building)
       @lesson = Lesson.new
     end
 

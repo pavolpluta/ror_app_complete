@@ -9,7 +9,7 @@
     <%= f.input :end_at, minute_step: 5, start_year: Date.today.year %>
     </div>
     <div class="col-md-6">
-      <%= f.association :room, :label_method => lambda { |room| "#{room.title} (#{room.building.title})"}%>
+      <%= f.association :room, :collection => Room.includes(:building).all, :label_method => lambda { |room| "#{room.title} (#{room.building.title})"}%>
     </div>
     <div class="col-md-6">
       <%= f.association :teacher, :label_method => lambda { |teacher| "#{teacher.first_name} #{teacher.last_name}"},

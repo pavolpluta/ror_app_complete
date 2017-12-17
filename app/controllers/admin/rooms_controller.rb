@@ -31,7 +31,8 @@ module Admin
     end
 
     def show
-      @room_lessons = @room.lessons.paginate(page: params[:page], per_page: 10)
+      @lessons = Lesson.includes(:course, :teacher).where(room_id: @room).paginate(page:params[:page], per_page: 10)
+    #  @room_lessons = @room.lessons.paginate(page: params[:page], per_page: 10)
                           # .sort {|p1,p2| p1.start_at <=> p2.start_at} - sorting, maybe will use in default view
     end
 
